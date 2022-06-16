@@ -2,18 +2,40 @@ import xml.etree.ElementTree as ET
 from itertools import combinations
 import argparse
 import re
+import os
 
 parser = argparse.ArgumentParser(description="Utilities for cleaning mei files")
-parser.add_argument('mei_file', type = str, nargs = '?', help = "Path to mei file for cleaning",action = 'store')
+parser.add_argument('mei_path', type = str, nargs = '?', help = "Path to mei file for cleaning. If a directory, cleans all mei files in the directory.",action = 'store')
 parser.add_argument('--remove_unreferenced_zones', action = 'store_true', help = "If flagged, removes zones/bounding boxes that are defined but not referenced anywhere in the body.")
 parser.add_argument('--remove_identical_duplicates', action = 'store_true', help = "If flagged, removes duplicate zones/bounding boxes and duplicate objects that reference those bounding boxes.")
-parser.add_argument('--destination_file', action = 'store', default = None, type = str, nargs = '?', help = "If provided, the cleaned file is save here. If omitted, file is save to mei_file location.")
+parser.add_argument('--destination_path', action = 'store', default = None, type = str, nargs = '?', help = "If provided, the cleaned file is save here. If omitted, file is save to mei_path location. If mei_path is a directory, this should also be a directory.")
 args = parser.parse_args()
 
 MEINS = "{http://www.music-encoding.org/ns/mei}"
 XMLNS = "{http://www.w3.org/XML/1998/namespace}"
 
-def clean_mei_file(filepath,
+ET.register_namespace("","http://www.music-encoding.org/ns/mei")
+
+def clean_mei_files(path, destination_path = None,
+                    remove_unreferenced = True,
+                    remove_identical_duplicates = True):
+    if os.path.isfile(path):
+        cleaned_mei, xml_declarations = clean_mei(path, remove_unreferenced=remove_unreferenced,remove_identical_duplicates=remove_identical_duplicates)
+        if destination_path:
+            save_mei_file(cleaned_mei, xml_declarations, destination_path)
+        else:
+            save_mei_file(cleaned_mei, xml_declarations, path)
+    if os.path.isdir(path):
+        mei_files = [file for file in os.listdir(path) if file.endswith('.mei')]
+        for mei_f in mei_files:
+            cleaned_mei, xml_declarations = clean_mei(os.path.join(path, mei_f), remove_unreferenced=remove_unreferenced,remove_identical_duplicates=remove_identical_duplicates)
+            if destination_path:
+                save_mei_file(cleaned_mei, xml_declarations, os.path.join(destination_path, mei_f))
+            else:
+                save_mei_file(cleaned_mei, xml_declarations, os.path.join(path, mei_f))
+    
+
+def clean_mei(filepath,
                     remove_unreferenced = True,
                     remove_identical_duplicates = True):
     print(f"CLEANING MEI FILE: {filepath}")
@@ -105,10 +127,5 @@ def save_mei_file(xml_tree, xml_declarations, filepath):
         out_file.write(formatted_xml_str)
 
 if __name__ == "__main__":
-    ET.register_namespace("","http://www.music-encoding.org/ns/mei")
-    cleaned_mei, xml_declarations = clean_mei_file(args.mei_file, remove_unreferenced=args.remove_unreferenced_zones,
+    clean_mei_files(path = args.mei_path, destination_path = args.destination_path, remove_unreferenced=args.remove_unreferenced_zones,
                                 remove_identical_duplicates=args.remove_identical_duplicates)
-    if args.destination_file:
-        save_mei_file(cleaned_mei, xml_declarations, args.destination_file)
-    else:
-        save_mei_file(cleaned_mei, xml_declarations, args.mei_file)
