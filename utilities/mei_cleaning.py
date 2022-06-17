@@ -43,7 +43,6 @@ parser.add_argument(
     nargs="?",
     help="File in which to report any raised non-identical duplicates. If not given, results are printed.",
 )
-args = parser.parse_args()
 
 MEINS = "{http://www.music-encoding.org/ns/mei}"
 XMLNS = "{http://www.w3.org/XML/1998/namespace}"
@@ -260,6 +259,7 @@ def clean_mei_files(
 
 
 if __name__ == "__main__":
+    args = parser.parse_args()
     clean_mei_files(
         path=args.mei_path,
         destination_path=args.destination_path,
