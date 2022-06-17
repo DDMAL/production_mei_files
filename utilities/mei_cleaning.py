@@ -110,10 +110,9 @@ class MEIFileCleaner:
                         {dup_dict_1['bb_id']} > \n
                         \t {dup_dict_1['element'].attrib} {dup_dict_1['element'].text} \n
                         {dup_dict_2['bb_id']} > \n
-                        \t {dup_dict_2['element'].attrib} {dup_dict_2['element'].text} \n
-                        """
+                        \t {dup_dict_2['element'].attrib} {dup_dict_2['element'].text} \n \n"""
         if self.report_file:
-            with open(self.report_file, 'wa') as rf:
+            with open(self.report_file, 'a') as rf:
                 rf.write(str_to_print)
         else:
             print(str_to_print)
@@ -142,8 +141,8 @@ class MEIFileCleaner:
     def clean_mei(self, filepath):
         print(f"CLEANING MEI FILE: {filepath}")
         if self.report_file:
-            with open(self.report_file, 'wa') as rf:
-                rf.write(f"CLEANING MEI FILE: {filepath}")
+            with open(self.report_file, 'a') as rf:
+                rf.write(f"CLEANING MEI FILE: {filepath} \n")
         xml_tree, xml_declarations = read_mei_file(filepath)
         mei = xml_tree.getroot()
         if self.remove_unreferenced_bounding_boxes:
