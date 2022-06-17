@@ -52,7 +52,7 @@ class MEIFileCleaner:
                 dupe_zone_list.append((z1,z2))
         return dupe_zone_list
 
-    def remove_unreferenced_zones(mei):
+    def remove_unreferenced_zones(self, mei):
         """Removes any zones defined in the facsimile section of mei (ie.
         zone elements for which coordinates are defined) but that are not
         associated with any mei element in the score."""
@@ -134,8 +134,9 @@ class MEIFileCleaner:
             else:
                 if self.raise_nonidentical_duplicates:
                     self.register_nonidentical_duplicates(dup_ref[0], dup_ref[1])
-        if self.raise_nonidentical_duplicates & self.report_file:
-            print(f'Non-identical duplicates checked and raised in {self.report_file}')
+        if self.raise_nonidentical_duplicates:
+            if self.report_file:
+                print(f'Non-identical duplicates checked and raised in {self.report_file}')
         return None
 
     def clean_mei(self, filepath):
