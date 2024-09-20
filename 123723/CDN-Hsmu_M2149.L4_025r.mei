@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://music-encoding.org/schema/4.0.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://music-encoding.org/schema/4.0.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://music-encoding.org/schema/dev/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/dev/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei
-    xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
+    xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0.0-dev">
     <meiHead xml:id="m-c4fa7c44-c958-4236-8b81-89ead638c0ff">
         <fileDesc xml:id="m-a6223001-8c04-4be0-8c31-9aa025d19be0">
             <titleStmt xml:id="m-daaadf1a-7663-4057-8109-f6d78d036aca">
@@ -105,7 +105,7 @@
                 <zone xml:id="m-d231b954-dd05-45f3-b68f-0dae4b924042" ulx="5098" uly="1727" lrx="5164" lry="1773"/>
                 <zone xml:id="m-e65d51f2-8fd6-4a93-bb1a-6bb88e3f6aa2" ulx="5203" uly="1727" lrx="5269" lry="1773"/>
                 <zone xml:id="m-23f1302b-a9f5-4691-89b9-d4a5b643f859" ulx="5260" uly="1772" lrx="5326" lry="1818"/>
-                <zone xml:id="m-7eb4adeb-2c5c-4cb0-8638-48c969016c5d" ulx="5371" uly="1817" lrx="5437" lry="1863"/>
+                <zone xml:id="m-7eb4adeb-2c5c-4cb0-8638-48c969016c5d" ulx="5371" uly="1818" lrx="5437" lry="1864"/>
                 <zone xml:id="m-38a8c866-46dd-4654-a5b2-b22086f52b71" ulx="1147" uly="2111" lrx="5425" lry="2444" rotate="-0.483501"/>
                 <zone xml:id="m-650a1e05-57bd-407d-ab71-2dde43667207" ulx="1165" uly="2467" lrx="1458" lry="2749"/>
                 <zone xml:id="m-a445ae6a-d3d2-4f77-b536-64a14bb5faa8" ulx="1158" uly="2244" lrx="1227" lry="2292"/>
@@ -145,7 +145,7 @@
                 <zone xml:id="m-dc652d64-24bf-4462-b44d-1ea7460ba89f" ulx="4760" uly="2310" lrx="4829" lry="2358"/>
                 <zone xml:id="m-20713856-bec1-4b8d-88b8-6f68fd0140c6" ulx="5060" uly="2403" lrx="5129" lry="2451"/>
                 <zone xml:id="m-9df7c13e-df3d-4b6c-9d41-fd33974d843c" ulx="4900" uly="2368" lrx="5187" lry="2719"/>
-                <zone xml:id="m-02c486bc-6a61-46f5-80b0-1a9fbad8be8a" ulx="5279" uly="2401" lrx="5348" lry="2449"/>
+                <zone xml:id="m-02c486bc-6a61-46f5-80b0-1a9fbad8be8a" ulx="5279" uly="2402" lrx="5348" lry="2450"/>
                 <zone xml:id="m-dd8761b1-571b-49e4-b3f2-b1119b86e91c" ulx="2335" uly="2730" lrx="5360" lry="3015"/>
                 <zone xml:id="m-1248fce7-2370-4587-bb35-a768549ef7dc" ulx="1237" uly="3018" lrx="1534" lry="3275"/>
                 <zone xml:id="m-c540fdae-2ba6-4e98-8035-95f897288e02" ulx="1163" uly="2838" lrx="1234" lry="2888"/>
@@ -308,12 +308,12 @@
                 <zone xml:id="m-d8e84d22-0a58-461b-9eb3-dbbdec8d83d3" ulx="2155" uly="5341" lrx="2220" lry="5386"/>
                 <zone xml:id="m-39c47f67-c2e4-4949-90b6-0fb03b670a1f" ulx="2203" uly="5295" lrx="2268" lry="5340"/>
                 <zone xml:id="m-9f68fc3b-e7ca-46f6-9b05-7350d6a57e60" ulx="2450" uly="5385" lrx="2674" lry="5836"/>
-                <zone xml:id="m-c6f59a4e-8689-4067-904b-a0312a425637" ulx="2510" uly="5247" lrx="2575" lry="5292"/>
-                <zone xml:id="m-f986ae36-9af4-4a42-abb9-156340278456" ulx="2456" uly="5292" lrx="2521" lry="5337"/>
-                <zone xml:id="m-e4cd50fd-c271-42a3-9e7c-d2c4a83ebb45" ulx="2567" uly="5201" lrx="2632" lry="5246"/>
-                <zone xml:id="m-7d2ec2da-6bd4-45a5-9dfc-3511f6aca023" ulx="2649" uly="5245" lrx="2714" lry="5290"/>
-                <zone xml:id="m-624ce739-c8ae-4238-b0c1-3359b6a0b5e8" ulx="2715" uly="5289" lrx="2780" lry="5334"/>
-                <zone xml:id="m-750bf0e4-a1d9-4c78-8570-20e2596432d0" ulx="2810" uly="5243" lrx="2875" lry="5288"/>
+                <zone xml:id="m-c6f59a4e-8689-4067-904b-a0312a425637" ulx="2502" uly="5247" lrx="2567" lry="5292"/>
+                <zone xml:id="m-f986ae36-9af4-4a42-abb9-156340278456" ulx="2448" uly="5293" lrx="2513" lry="5338"/>
+                <zone xml:id="m-e4cd50fd-c271-42a3-9e7c-d2c4a83ebb45" ulx="2559" uly="5201" lrx="2624" lry="5246"/>
+                <zone xml:id="m-7d2ec2da-6bd4-45a5-9dfc-3511f6aca023" ulx="2641" uly="5245" lrx="2706" lry="5290"/>
+                <zone xml:id="m-624ce739-c8ae-4238-b0c1-3359b6a0b5e8" ulx="2707" uly="5289" lrx="2772" lry="5334"/>
+                <zone xml:id="m-750bf0e4-a1d9-4c78-8570-20e2596432d0" ulx="2802" uly="5243" lrx="2867" lry="5288"/>
                 <zone xml:id="m-0cc170f0-9465-4757-aa4e-1c0be12e5629" ulx="2980" uly="5423" lrx="3237" lry="5715"/>
                 <zone xml:id="m-16d1d24f-a332-4837-a381-2ece5d1bd0bc" ulx="2973" uly="5286" lrx="3038" lry="5331"/>
                 <zone xml:id="m-5c4e15fc-bcc7-49d7-bd9e-24218b69fcb6" ulx="3316" uly="5393" lrx="3542" lry="5794"/>
@@ -332,7 +332,7 @@
                 <zone xml:id="m-6d418ffb-f147-4316-9e6a-1e9295406d56" ulx="4280" uly="5226" lrx="4345" lry="5271"/>
                 <zone xml:id="m-92bb2824-94d7-451b-bbdb-2ee6ffc3fa34" ulx="4331" uly="5135" lrx="4396" lry="5180"/>
                 <zone xml:id="m-14d84617-4718-48df-94a6-894e4ca6a104" ulx="4400" uly="5269" lrx="4465" lry="5314"/>
-                <zone xml:id="m-456cd9ef-435d-4f0f-ae14-e1f7987c6659" ulx="4450" uly="5224" lrx="4515" lry="5269"/>
+                <zone xml:id="m-456cd9ef-435d-4f0f-ae14-e1f7987c6659" ulx="4462" uly="5224" lrx="4527" lry="5269"/>
                 <zone xml:id="m-3864218a-88e1-4414-a7b7-fcebcd641a96" ulx="4528" uly="5369" lrx="4982" lry="5817"/>
                 <zone xml:id="m-08820e12-ce9d-4418-b4b0-9662dd1e8406" ulx="4685" uly="5266" lrx="4750" lry="5311"/>
                 <zone xml:id="m-7b825998-bd93-4941-a9e1-59eacc911122" ulx="4750" uly="5310" lrx="4815" lry="5355"/>
@@ -342,10 +342,10 @@
                 <zone xml:id="m-79506753-3911-40af-8641-b307112d2c75" ulx="1141" uly="5722" lrx="5403" lry="6026" rotate="-0.388258"/>
                 <zone xml:id="m-badf4f98-89a0-4f38-b3f2-d448a568a05d" ulx="1196" uly="6066" lrx="1590" lry="6322"/>
                 <zone xml:id="m-bacaf056-01c4-45db-8fb3-22ffe39afe88" ulx="1134" uly="5840" lrx="1198" lry="5885"/>
-                <zone xml:id="m-ab6555b9-c52c-4d46-89fa-75112de0d137" ulx="1269" uly="5930" lrx="1333" lry="5975"/>
-                <zone xml:id="m-a151bf30-a1ae-43ae-a3dc-25de907f3612" ulx="1311" uly="5839" lrx="1375" lry="5884"/>
-                <zone xml:id="m-7ff66fff-ad4d-4079-81d2-d4e4e4cbc3b4" ulx="1376" uly="5974" lrx="1440" lry="6019"/>
-                <zone xml:id="m-66c85a4b-14c1-4ac2-9343-6ee57dd4459e" ulx="1426" uly="5929" lrx="1490" lry="5974"/>
+                <zone xml:id="m-ab6555b9-c52c-4d46-89fa-75112de0d137" ulx="1277" uly="5930" lrx="1341" lry="5975"/>
+                <zone xml:id="m-a151bf30-a1ae-43ae-a3dc-25de907f3612" ulx="1319" uly="5839" lrx="1383" lry="5884"/>
+                <zone xml:id="m-7ff66fff-ad4d-4079-81d2-d4e4e4cbc3b4" ulx="1384" uly="5974" lrx="1448" lry="6019"/>
+                <zone xml:id="m-66c85a4b-14c1-4ac2-9343-6ee57dd4459e" ulx="1434" uly="5929" lrx="1498" lry="5974"/>
                 <zone xml:id="m-49536e1d-7f54-4d6d-848d-80e24e479470" ulx="1620" uly="6069" lrx="1797" lry="6326"/>
                 <zone xml:id="m-103fce8d-105d-4bf4-b672-100d4a5e3e99" ulx="1652" uly="5972" lrx="1716" lry="6017"/>
                 <zone xml:id="m-35332e93-8bfb-4431-8e81-3f09d31b3257" ulx="1707" uly="6017" lrx="1771" lry="6062"/>
@@ -361,17 +361,17 @@
                 <zone xml:id="m-c78b7f00-e2ed-4b35-8149-9f7c3f7e2366" ulx="2829" uly="6023" lrx="3094" lry="6280"/>
                 <zone xml:id="m-2bf8fa36-1f8f-4fee-af9a-5bfd5a4a4168" ulx="2895" uly="5919" lrx="2959" lry="5964"/>
                 <zone xml:id="m-322e3fc4-c5cc-489d-b0f6-3d122a796bea" ulx="3077" uly="6007" lrx="3274" lry="6265"/>
-                <zone xml:id="m-dc7ddacc-fb36-4989-94b9-dbcac8b6f508" ulx="3058" uly="5828" lrx="3122" lry="5873"/>
-                <zone xml:id="m-aeceafa7-d145-4232-96f7-ba0ba6d803e6" ulx="3130" uly="5827" lrx="3194" lry="5872"/>
-                <zone xml:id="m-661f302f-fa6b-4354-a875-98a3eae99983" ulx="3180" uly="5782" lrx="3244" lry="5827"/>
+                <zone xml:id="m-dc7ddacc-fb36-4989-94b9-dbcac8b6f508" ulx="3066" uly="5827" lrx="3130" lry="5872"/>
+                <zone xml:id="m-aeceafa7-d145-4232-96f7-ba0ba6d803e6" ulx="3138" uly="5827" lrx="3202" lry="5872"/>
+                <zone xml:id="m-661f302f-fa6b-4354-a875-98a3eae99983" ulx="3188" uly="5782" lrx="3252" lry="5827"/>
                 <zone xml:id="m-1c92b5b9-1d86-483f-952e-56832d130cb7" ulx="3271" uly="6013" lrx="3588" lry="6268"/>
                 <zone xml:id="m-b55a1c96-2640-4c66-931c-3c987ba6838d" ulx="3355" uly="5825" lrx="3419" lry="5870"/>
                 <zone xml:id="m-7f7cd3f4-09f2-4a8f-96fb-616da5803056" ulx="3604" uly="6017" lrx="3851" lry="6293"/>
                 <zone xml:id="m-2663f530-766b-48e3-aa0f-8f875b7de588" ulx="3704" uly="5823" lrx="3768" lry="5868"/>
                 <zone xml:id="m-1d9196f6-ba67-492e-9104-96c0d4ceaedc" ulx="3855" uly="6001" lrx="4166" lry="6286"/>
-                <zone xml:id="m-e18303f2-30f6-4db4-a4b9-af915a713f51" ulx="3877" uly="5822" lrx="3941" lry="5867"/>
-                <zone xml:id="m-23437b44-2c9b-4246-ba13-d00430265e80" ulx="3963" uly="5821" lrx="4027" lry="5866"/>
-                <zone xml:id="m-3e29c26c-125d-4eab-9802-b6bbdcb3a7c3" ulx="4039" uly="5821" lrx="4103" lry="5866"/>
+                <zone xml:id="m-e18303f2-30f6-4db4-a4b9-af915a713f51" ulx="3885" uly="5822" lrx="3949" lry="5867"/>
+                <zone xml:id="m-23437b44-2c9b-4246-ba13-d00430265e80" ulx="3971" uly="5821" lrx="4035" lry="5866"/>
+                <zone xml:id="m-3e29c26c-125d-4eab-9802-b6bbdcb3a7c3" ulx="4047" uly="5821" lrx="4111" lry="5866"/>
                 <zone xml:id="m-3d6f8669-475a-4d28-af13-8cf4e7b55c2a" ulx="4163" uly="6000" lrx="4472" lry="6271"/>
                 <zone xml:id="m-0b130370-0360-4425-a05b-fd0aac592b52" ulx="4257" uly="5909" lrx="4321" lry="5954"/>
                 <zone xml:id="m-c1786945-631a-4d85-adbd-ba896cabb869" ulx="4522" uly="5996" lrx="4833" lry="6252"/>
@@ -426,7 +426,7 @@
                 <zone xml:id="m-6438c982-31dc-4402-9bad-03ea75bf69a5" ulx="4650" uly="6556" lrx="4716" lry="6602"/>
                 <zone xml:id="m-ebb6c88a-407b-47f1-ae29-c0ddfd422877" ulx="4876" uly="6658" lrx="5310" lry="6863"/>
                 <zone xml:id="m-33e4744b-4c64-4b56-adeb-51bf7ec1c6a7" ulx="4995" uly="6599" lrx="5061" lry="6645"/>
-                <zone xml:id="m-33eea803-f198-4dfe-9780-62796b671dea" ulx="5312" uly="6549" lrx="5378" lry="6595"/>
+                <zone xml:id="m-33eea803-f198-4dfe-9780-62796b671dea" ulx="5312" uly="6550" lrx="5378" lry="6596"/>
                 <zone xml:id="m-ebe73893-abd9-430d-a265-890c43f21506" ulx="1165" uly="6903" lrx="5396" lry="7245" rotate="-0.488872"/>
                 <zone xml:id="m-f628b598-4cec-428e-806a-2531c8d8add1" ulx="1215" uly="7288" lrx="1507" lry="7540"/>
                 <zone xml:id="m-4d17d086-2f5a-4c7a-b404-a895fca6fc0d" ulx="1133" uly="6939" lrx="1204" lry="6989"/>
@@ -483,7 +483,7 @@
                 <zone xml:id="m-c167de31-4c3a-4c20-8917-0b2da86b18ba" ulx="2179" uly="7697" lrx="2251" lry="7748"/>
                 <zone xml:id="m-d70ada16-a51d-44c5-9eda-0e9037bcd698" ulx="2363" uly="7879" lrx="2546" lry="8153"/>
                 <zone xml:id="m-8f99ddd2-dca4-4685-8e0f-8e4c3884cb87" ulx="2353" uly="7644" lrx="2425" lry="7695"/>
-                <zone xml:id="m-68e5f347-c34b-49a0-a0cf-72419944a877" ulx="2400" uly="7593" lrx="2472" lry="7644"/>
+                <zone xml:id="m-68e5f347-c34b-49a0-a0cf-72419944a877" ulx="2408" uly="7593" lrx="2480" lry="7644"/>
                 <zone xml:id="m-46d5dbfc-e287-41e9-9748-fd0e4d0f8fc2" ulx="2474" uly="7644" lrx="2546" lry="7695"/>
                 <zone xml:id="m-6f9a7ce6-4566-47a8-a872-1d15b7f7bfbf" ulx="2546" uly="7694" lrx="2618" lry="7745"/>
                 <zone xml:id="m-d8879499-d01d-4083-8885-165bf6a2da20" ulx="2638" uly="7642" lrx="2710" lry="7693"/>
@@ -537,7 +537,7 @@
                 <zone xml:id="zone-0000000931107843" ulx="2951" uly="2915" lrx="3017" lry="2961"/>
                 <zone xml:id="zone-0000001455296753" ulx="3163" uly="3015" lrx="3329" lry="3161"/>
                 <zone xml:id="zone-0000001051700509" ulx="3278" uly="3038" lrx="3519" lry="3305"/>
-                <zone xml:id="zone-0000000130078205" ulx="5305" uly="2822" lrx="5371" lry="2868"/>
+                <zone xml:id="zone-0000000130078205" ulx="5305" uly="2823" lrx="5371" lry="2869"/>
                 <zone xml:id="zone-0000001067073499" ulx="2038" uly="3637" lrx="2328" lry="3883"/>
                 <zone xml:id="zone-0000001824662415" ulx="1165" uly="4025" lrx="1235" lry="4074"/>
                 <zone xml:id="zone-0000001124894563" ulx="2788" uly="4120" lrx="2988" lry="4320"/>
@@ -574,6 +574,15 @@
                 <zone xml:id="zone-0000001438690274" ulx="4322" uly="6621" lrx="4619" lry="6887"/>
                 <zone xml:id="zone-0000001632457816" ulx="2699" uly="7255" lrx="3050" lry="7521"/>
                 <zone xml:id="zone-0000000058596765" ulx="2653" uly="4827" lrx="2859" lry="5138"/>
+                <zone xml:id="zone-0000002012877749" ulx="5249" uly="7828" lrx="5321" lry="7879"/>
+                <zone xml:id="zone-0000000527007597" ulx="5435" uly="7881" lrx="5635" lry="8081"/>
+                <zone xml:id="zone-0000000324901927" ulx="5321" uly="7776" lrx="5393" lry="7827"/>
+                <zone xml:id="zone-0000001614043303" ulx="5376" uly="7776" lrx="5448" lry="7827"/>
+                <zone xml:id="zone-0000000501617928" ulx="4260" uly="23346" lrx="4326" lry="6400"/>
+                <zone xml:id="zone-0000000336209729" ulx="3414" uly="25774" lrx="3484" lry="3975"/>
+                <zone xml:id="zone-0000000711796163" ulx="4522" uly="27553" lrx="4591" lry="2195"/>
+                <zone xml:id="zone-0000000230553369" ulx="1820" uly="28145" lrx="1886" lry="1601"/>
+                <zone xml:id="zone-0000001695510960" ulx="1191" uly="28145" lrx="1257" lry="1601"/>
             </surface>
         </facsimile>
         <body>
@@ -631,7 +640,7 @@
                                     </neume>
                                     <neume xml:id="neume-0000000606347313">
                                         <nc xml:id="m-01573ac9-de0b-4a27-802e-e9010db99d4a" facs="#m-58330d44-3462-4547-93ea-be0122ddd85c" oct="2" pname="b"/>
-                                        <nc xml:id="m-369e1e81-cd12-41d7-86cf-2ab47a0b2cd4" facs="#m-8395b5ce-fcf2-47a1-a589-7f49542ce1b6" oct="2" pname="a"/>
+                                        <nc xml:id="m-369e1e81-cd12-41d7-86cf-2ab47a0b2cd4" facs="#m-8395b5ce-fcf2-47a1-a589-7f49542ce1b6" oct="2" pname="a" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="m-b845ec14-0f67-4ae6-bd03-fd85ff0becec">
@@ -676,13 +685,14 @@
                                         <nc xml:id="m-d37af1b1-451f-46f3-87fe-58f1a8ac2f21" facs="#m-21e27daf-b4ce-4c28-b1cc-f155a9397b3f" oct="3" pname="c" ligated="true"/>
                                         <nc xml:id="m-1145b137-a18e-4cc1-a8d6-a3eaccde198b" facs="#m-71362e13-c3ef-4db9-9964-bcce9fb0aa0d" oct="2" pname="b" ligated="true"/>
                                         <nc xml:id="m-72e4c10a-86f5-452a-8dfe-fe77107b3137" facs="#m-5a045f6e-be6e-4496-ae4f-c55c15b1de79" oct="3" pname="c"/>
-                                        <nc xml:id="m-0641c9f7-a21f-48e3-8691-ce2cd669396b" facs="#m-62c61f65-c88b-4f65-93ba-113a59583b39" oct="3" pname="d"/>
+                                        <nc xml:id="m-0641c9f7-a21f-48e3-8691-ce2cd669396b" facs="#m-62c61f65-c88b-4f65-93ba-113a59583b39" oct="3" pname="d" tilt="s"/>
                                     </neume>
                                     <syl xml:id="m-e91d5c1e-35a5-44fc-bd0c-64cc0a75e0fe" facs="#m-a5ece5a3-193b-449c-8baf-f2e7ca9f6708">in</syl>
                                 </syllable>
                                 <custos facs="#m-f4e11f63-602e-44d3-b66e-272d817949f9" oct="3" pname="c" xml:id="m-de8880e5-8698-400a-875f-061aeb1747f1"/>
                                 <sb n="1" facs="#m-afe17c91-635b-4ca3-8a08-2f736f82e3fa" xml:id="m-9e276470-88a2-4683-b622-3547335ea4a5"/>
                                 <clef xml:id="m-34e2fe07-57de-487c-a2f8-c0fb0d5df792" facs="#m-be03a8b4-8ccd-407c-a2a6-541a0673ebc2" shape="C" line="3"/>
+                                <accid xml:id="accid-0000002098575868" facs="#zone-0000001695510960" accid="f"/>
                                 <syllable xml:id="m-fda1f95b-e139-42a7-9d6c-f2dc7a1f05df">
                                     <syl xml:id="m-3cdf0908-c52a-4096-99bf-df5733207716" facs="#m-79162344-3ddb-4c6c-91ad-82b27f7e711a">ter</syl>
                                     <neume xml:id="m-75edf68e-b987-44e4-bfce-67a0274a43dd">
@@ -699,6 +709,7 @@
                                         <nc xml:id="m-00717642-8439-4d31-a755-5788fa25d00f" facs="#m-d51905fd-1d22-488f-a46d-ddba1f57f8af" oct="2" pname="a"/>
                                     </neume>
                                 </syllable>
+                                <accid xml:id="accid-0000000676423494" facs="#zone-0000000230553369" accid="f"/>
                                 <syllable xml:id="m-7794da01-4338-49c3-8185-55ae0885b7f4">
                                     <syl xml:id="m-0b3eb2c4-bb69-44d9-b6cc-16fd2043cbda" facs="#m-f2147386-ad6f-4ccf-8937-da4c2456d845">na</syl>
                                     <neume xml:id="m-dd07ba4a-31fa-40bc-8538-950cf81ea988">
@@ -833,7 +844,7 @@
                                     <neume xml:id="neume-0000001522733479">
                                         <nc xml:id="nc-0000001046201004" facs="#zone-0000000707179977" oct="2" pname="a"/>
                                         <nc xml:id="nc-0000001489283831" facs="#zone-0000000351849920" oct="2" pname="b"/>
-                                        <nc xml:id="nc-0000000715696487" facs="#zone-0000001957250131" oct="2" pname="a"/>
+                                        <nc xml:id="nc-0000000715696487" facs="#zone-0000001957250131" oct="2" pname="a" tilt="s"/>
                                     </neume>
                                     <neume xml:id="m-ad525fa8-40d8-4bdc-be4f-193e7073349e">
                                         <nc xml:id="m-44199421-e7cb-4ae0-9ea5-5372ec0d0f0e" facs="#m-089dd0d9-19f1-4343-b9b8-7f6ff7083a0d" oct="2" pname="a"/>
@@ -842,7 +853,7 @@
                                 <syllable xml:id="syllable-0000001431736297">
                                     <syl xml:id="syl-0000001628500497" facs="#zone-0000000281195297">ge</syl>
                                     <neume xml:id="m-f1a64703-2c32-4542-8c42-7583d94e3438">
-                                        <nc xml:id="m-930de33b-edac-4dd1-8374-a95ebba167ca" facs="#m-1b2b90b7-9527-4c08-b9d8-6d5f855328a9" oct="2" pname="g"/>
+                                        <nc xml:id="m-930de33b-edac-4dd1-8374-a95ebba167ca" facs="#m-1b2b90b7-9527-4c08-b9d8-6d5f855328a9" oct="2" pname="g" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="m-a4bac111-fb08-4432-81b9-4eb04dd78879">
@@ -875,6 +886,7 @@
                                         <nc xml:id="m-8f16941d-a8e2-4df6-9827-340d69652e51" facs="#m-dc652d64-24bf-4462-b44d-1ea7460ba89f" oct="2" pname="a"/>
                                     </neume>
                                 </syllable>
+                                <accid xml:id="accid-0000000552216051" facs="#zone-0000000711796163" accid="f"/>
                                 <syllable xml:id="syllable-0000001864070557">
                                     <syl xml:id="syl-0000000518614342" facs="#zone-0000000172483168">di</syl>
                                     <neume xml:id="m-8b355823-e025-40bb-8c2d-594343326bf5">
@@ -906,7 +918,7 @@
                                 <syllable xml:id="m-0dffae5e-f9ce-4e8f-b6fc-2fd575a5cf02">
                                     <syl xml:id="m-79e03182-87e7-46ec-9864-8bfb230ba8cf" facs="#m-c5a8296d-874f-49bb-9890-79732a513336">Prop</syl>
                                     <neume xml:id="m-bc20f742-57e3-4c0a-84d4-939f06157e3c">
-                                        <nc xml:id="m-04fcccc6-f9ae-4337-b505-d2350f7d8461" facs="#m-ed1730be-1a91-4a0b-9421-842b7c58cb28" oct="3" pname="c"/>
+                                        <nc xml:id="m-04fcccc6-f9ae-4337-b505-d2350f7d8461" facs="#m-ed1730be-1a91-4a0b-9421-842b7c58cb28" oct="3" pname="c" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="syllable-0000000454646363">
@@ -1119,13 +1131,13 @@
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="syllable-0000000196815078">
-                                    <syl xml:id="m-2d16dfc0-5f40-4474-b8ce-14135a395ec5" facs="#m-5d36bb21-3ca2-45b8-95e9-63f050d7df69">car</syl>
                                     <neume xml:id="neume-0000000531969847">
                                         <nc xml:id="m-a5b359ab-dc90-4e3a-88e6-5c7536d4f534" facs="#m-b855f771-ce91-4ae7-a7c2-dd4e20ccd26f" oct="3" pname="c" ligated="true"/>
                                         <nc xml:id="nc-0000000469393354" facs="#zone-0000000847691916" oct="2" pname="b" ligated="true"/>
                                         <nc xml:id="m-2f90a4ff-067a-4ed3-8a05-bb55e8807ec5" facs="#m-a9a1db32-2d5a-40d4-aebb-a3b0aaaba960" oct="3" pname="c"/>
                                         <nc xml:id="m-088a1dc5-80ab-4087-ba52-c1921dd649c3" facs="#m-a0d9fbcd-f899-45a7-a760-c7fead2050ce" oct="2" pname="b"/>
                                     </neume>
+                                    <syl xml:id="m-2d16dfc0-5f40-4474-b8ce-14135a395ec5" facs="#m-5d36bb21-3ca2-45b8-95e9-63f050d7df69">car</syl>
                                 </syllable>
                                 <syllable xml:id="m-af716db4-bff0-4295-88b2-4f3a5ff4dc3c">
                                     <syl xml:id="m-b6d026c5-14f8-4669-94a7-ad96e5eb2cf0" facs="#m-b525fd73-90d2-405f-bc82-ea85dbd80dec">nis</syl>
@@ -1138,15 +1150,16 @@
                                     <syl xml:id="m-c83b47ee-bb80-4df5-8bdb-298dc030e35b" facs="#m-08162e82-c8b0-4938-bcca-463de8a8bb0d">pec</syl>
                                     <neume xml:id="m-e9acf161-79be-4e69-9465-5f50a6c6c3c6">
                                         <nc xml:id="m-6cca6287-62f4-4745-9651-cc1ba5f4090f" facs="#m-aa779e6c-91e3-4e8b-b31f-cccab3765f57" oct="3" pname="c"/>
-                                        <nc xml:id="m-b76da75f-2739-4a2d-9bae-5d08d256e3c7" facs="#m-9c37a9b2-b25d-472d-b0b8-3a90167cb195" oct="3" pname="d"/>
+                                        <nc xml:id="m-b76da75f-2739-4a2d-9bae-5d08d256e3c7" facs="#m-9c37a9b2-b25d-472d-b0b8-3a90167cb195" oct="3" pname="d" tilt="s"/>
                                     </neume>
                                 </syllable>
+                                <accid xml:id="accid-0000001260975432" facs="#zone-0000000336209729" accid="f"/>
                                 <syllable xml:id="m-dc07cc59-7d40-4b7c-864b-f03ec807778f">
-                                    <syl xml:id="m-d24b90aa-c069-47a7-a07b-b482c9956db5" facs="#m-02d46c94-8c61-4eb5-b2f1-fce9fbda0a40">ca</syl>
                                     <neume xml:id="neume-0000001986592408">
                                         <nc xml:id="m-2dc4d3ba-64b0-43cd-9521-548758bcdd7e" facs="#m-554e9c61-0650-469a-8a60-000c1e6905ca" oct="3" pname="c"/>
                                         <nc xml:id="m-219fcfc2-9591-4d3d-b9af-8ec5024b9d94" facs="#m-2ceb7870-6a85-42f2-978f-77c53ccc1650" oct="2" pname="b"/>
                                     </neume>
+                                    <syl xml:id="m-d24b90aa-c069-47a7-a07b-b482c9956db5" facs="#m-02d46c94-8c61-4eb5-b2f1-fce9fbda0a40">ca</syl>
                                     <neume xml:id="neume-0000001276160125">
                                         <nc xml:id="m-85b9d3e9-ff17-4ff7-9ae0-4e749e8accf9" facs="#m-a31801d8-16ff-4384-856c-5d59d0cfda9c" oct="3" pname="c"/>
                                         <nc xml:id="m-f4c1aa08-f5d8-4ea9-bf47-5973c0dee831" facs="#m-db30ceb9-d6a4-4c7d-9d81-12ad89b62802" oct="3" pname="d"/>
@@ -1195,14 +1208,14 @@
                                 <syllable xml:id="m-0b08731e-08af-4154-a16e-cf99df42cc9d">
                                     <syl xml:id="m-80ea3c62-4162-444d-8b1f-55b190d9edd9" facs="#m-f08ed792-e461-4b85-82cb-7bdbe3918d27">Vir</syl>
                                     <neume xml:id="m-45e570a4-21d1-4312-aaa6-568f54017412">
-                                        <nc xml:id="m-36e69162-f71a-4724-965b-34683c7f39cb" facs="#m-ec4c12e1-07a7-4950-92e9-68e067461985" oct="3" pname="g"/>
+                                        <nc xml:id="m-36e69162-f71a-4724-965b-34683c7f39cb" facs="#m-ec4c12e1-07a7-4950-92e9-68e067461985" oct="3" pname="g" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="m-b434bc21-e95b-4dfa-a6e2-77a12306fc71">
                                     <syl xml:id="m-67c12ad7-7dbd-40e6-ba79-b9e0b07b35f0" facs="#m-d52736b9-9e3e-463e-8336-a272999e6bfe">go</syl>
                                     <neume xml:id="m-4c562cd0-f6ab-4a6f-babd-3fcd35a5f7fb">
                                         <nc xml:id="m-75c8e321-c6cd-4c4a-b388-20923969eec8" facs="#m-94b459f0-3ee1-4ff5-bd78-ec043aad3592" oct="3" pname="f"/>
-                                        <nc xml:id="m-2e066686-bb0d-4320-acd4-2a38c323a6b5" facs="#m-440aae97-0a31-4fea-9aef-11b95a7def4c" oct="3" pname="g"/>
+                                        <nc xml:id="m-2e066686-bb0d-4320-acd4-2a38c323a6b5" facs="#m-440aae97-0a31-4fea-9aef-11b95a7def4c" oct="3" pname="g" tilt="s"/>
                                         <nc xml:id="m-f55e6358-d566-49cf-b090-87326901ab7c" facs="#m-d3c4fa6f-5417-4a2a-bce6-3dd7bb8deca5" oct="3" pname="f" tilt="se"/>
                                         <nc xml:id="m-736adffb-752b-431d-80bb-5438e5b74dcb" facs="#m-04ed7143-2996-4662-92f9-9d48eb7dbb3a" oct="3" pname="d" tilt="se"/>
                                     </neume>
@@ -1289,23 +1302,25 @@
                                 </syllable>
                                 <syllable xml:id="m-2aa2ebb7-75d2-435f-9c4f-64f2dc57982e">
                                     <syl xml:id="m-8a25bbe0-e901-4912-8760-b025a40959d1" facs="#m-9f68fc3b-e7ca-46f6-9b05-7350d6a57e60">tu</syl>
-                                    <neume xml:id="neume-0000002049081805">
+                                    <neume xml:id="neume-0000000821564321">
                                         <nc xml:id="m-8c27344e-6d4a-47ee-8beb-b3d94fea82b5" facs="#m-f986ae36-9af4-4a42-abb9-156340278456" oct="2" pname="g"/>
                                         <nc xml:id="m-391f5edc-554f-4423-a9f7-e7a532ed4374" facs="#m-c6f59a4e-8689-4067-904b-a0312a425637" oct="2" pname="a"/>
-                                        <nc xml:id="m-8b15d50b-5115-4889-bd79-61a6d0462c11" facs="#m-e4cd50fd-c271-42a3-9e7c-d2c4a83ebb45" oct="2" pname="b"/>
+                                    </neume>
+                                    <neume xml:id="neume-0000001994289043">
+                                        <nc xml:id="m-8b15d50b-5115-4889-bd79-61a6d0462c11" facs="#m-e4cd50fd-c271-42a3-9e7c-d2c4a83ebb45" oct="2" pname="b" tilt="s"/>
                                         <nc xml:id="m-6f581777-c12f-4102-9d32-205a0f685cc9" facs="#m-7d2ec2da-6bd4-45a5-9dfc-3511f6aca023" oct="2" pname="a" tilt="se"/>
                                         <nc xml:id="m-0f484d9d-4143-4a37-81bc-b75d27ba7516" facs="#m-624ce739-c8ae-4238-b0c1-3359b6a0b5e8" oct="2" pname="g" tilt="se"/>
                                         <nc xml:id="m-ce4781aa-b492-4b38-9390-612d62d60f18" facs="#m-750bf0e4-a1d9-4c78-8570-20e2596432d0" oct="2" pname="a"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="syllable-0000001103986889">
-                                    <syl xml:id="m-eb1e58be-a680-489b-9e93-a09075a3a628" facs="#m-0cc170f0-9465-4757-aa4e-1c0be12e5629">as</syl>
                                     <neume xml:id="neume-0000000166267309">
                                         <nc xml:id="m-49e3b579-b24b-4f9d-9ce5-e80a8e727e94" facs="#m-16d1d24f-a332-4837-a381-2ece5d1bd0bc" oct="2" pname="g"/>
                                         <nc xml:id="nc-0000000531312752" facs="#zone-0000000252020268" oct="2" pname="a"/>
                                         <nc xml:id="nc-0000000785256944" facs="#zone-0000000570077617" oct="2" pname="b"/>
                                         <nc xml:id="nc-0000000891211412" facs="#zone-0000001926447682" oct="2" pname="a"/>
                                     </neume>
+                                    <syl xml:id="m-eb1e58be-a680-489b-9e93-a09075a3a628" facs="#m-0cc170f0-9465-4757-aa4e-1c0be12e5629">as</syl>
                                 </syllable>
                                 <syllable xml:id="m-5704e93c-231c-4380-af72-531ac1c56ea2">
                                     <syl xml:id="m-2395b4a3-75d8-436d-886b-2edafe5e6c46" facs="#m-5c4e15fc-bcc7-49d7-bd9e-24218b69fcb6">us</syl>
@@ -1339,7 +1354,7 @@
                                         <nc xml:id="m-6cce2aa5-8979-4bf1-927e-f64650d4f2d5" facs="#m-6d418ffb-f147-4316-9e6a-1e9295406d56" oct="2" pname="a"/>
                                         <nc xml:id="m-0400eff5-5903-4e3e-b030-ca7cf7369678" facs="#m-92bb2824-94d7-451b-bbdb-2ee6ffc3fa34" oct="3" pname="c"/>
                                         <nc xml:id="m-3170816d-9c6e-4c24-a985-9b42acd65891" facs="#m-14d84617-4718-48df-94a6-894e4ca6a104" oct="2" pname="g"/>
-                                        <nc xml:id="m-ff051a46-f16d-4109-87cb-517c7174936e" facs="#m-456cd9ef-435d-4f0f-ae14-e1f7987c6659" oct="2" pname="a"/>
+                                        <nc xml:id="m-ff051a46-f16d-4109-87cb-517c7174936e" facs="#m-456cd9ef-435d-4f0f-ae14-e1f7987c6659" oct="2" pname="a" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="m-099898ae-59b9-4446-a650-af39e30376b8">
@@ -1350,10 +1365,10 @@
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="m-10cc71f6-f534-4516-b922-8aa7e319418c">
-                                    <neume xml:id="m-4a725585-b285-4980-bf78-5fe5415e67c3">
-                                        <nc xml:id="m-92154951-55fa-4236-8ec1-df093353cb1b" facs="#m-fd94d13e-e9e9-453f-bef1-9d2f090d6ea5" oct="2" pname="a"/>
-                                    </neume>
                                     <syl xml:id="m-8b063639-9785-445f-852a-f8d10699974a" facs="#m-47aacd64-278a-462a-a38b-73d485944a7a">a</syl>
+                                    <neume xml:id="m-4a725585-b285-4980-bf78-5fe5415e67c3">
+                                        <nc xml:id="m-92154951-55fa-4236-8ec1-df093353cb1b" facs="#m-fd94d13e-e9e9-453f-bef1-9d2f090d6ea5" oct="2" pname="a" tilt="s"/>
+                                    </neume>
                                 </syllable>
                                 <custos facs="#m-ccc15627-ca42-45d5-b965-5706fabdc67a" oct="2" pname="a" xml:id="m-ed65b6b1-a2ef-4d7c-9b9f-f5645853a3a2"/>
                                 <sb n="1" facs="#m-79506753-3911-40af-8641-b307112d2c75" xml:id="m-dd32e41a-f458-4657-85ec-0e6c0e2ea157"/>
@@ -1383,7 +1398,7 @@
                                 <syllable xml:id="m-ca251bfb-a85a-4171-8731-672ceff6df2e">
                                     <syl xml:id="m-317b6c2f-2987-4397-969a-0d85bcb865be" facs="#m-ef25aae2-3104-457e-aeea-ffae792b893e">ris</syl>
                                     <neume xml:id="m-200ebd72-d23e-4397-af59-fb874f592559">
-                                        <nc xml:id="m-58fa81a5-011f-447b-b848-08027f747781" facs="#m-e0f7985d-bf0b-4cf2-b2e7-ff42c1aa0625" oct="2" pname="a"/>
+                                        <nc xml:id="m-58fa81a5-011f-447b-b848-08027f747781" facs="#m-e0f7985d-bf0b-4cf2-b2e7-ff42c1aa0625" oct="2" pname="a" tilt="n"/>
                                         <nc xml:id="m-62faba38-9cd0-4b34-982e-bdd774fc8c59" facs="#m-920f462c-84f7-4505-98e4-589ad928591e" oct="2" pname="g"/>
                                     </neume>
                                 </syllable>
@@ -1403,7 +1418,7 @@
                                     <neume xml:id="m-1258128b-d1ea-4553-87fe-950e2bc12f8c">
                                         <nc xml:id="m-b36eaf43-c3de-4a56-81e1-f807a636f5f1" facs="#m-dc7ddacc-fb36-4989-94b9-dbcac8b6f508" oct="3" pname="c"/>
                                         <nc xml:id="m-81649b70-95bd-4fe8-be49-99bf1034b491" facs="#m-aeceafa7-d145-4232-96f7-ba0ba6d803e6" oct="3" pname="c"/>
-                                        <nc xml:id="m-564f74c5-697b-4006-a471-aae8b37aa41c" facs="#m-661f302f-fa6b-4354-a875-98a3eae99983" oct="3" pname="d"/>
+                                        <nc xml:id="m-564f74c5-697b-4006-a471-aae8b37aa41c" facs="#m-661f302f-fa6b-4354-a875-98a3eae99983" oct="3" pname="d" tilt="s"/>
                                     </neume>
                                     <syl xml:id="m-c926bb30-5c8e-4e0c-9472-14dbf3bd3d95" facs="#m-322e3fc4-c5cc-489d-b0f6-3d122a796bea">ra</syl>
                                 </syllable>
@@ -1422,7 +1437,7 @@
                                 <syllable xml:id="m-ef67be36-3838-4a68-9bd0-8e632d3431f8">
                                     <syl xml:id="m-aea64bda-25de-4beb-9c01-f7dcc6cbf18e" facs="#m-1d9196f6-ba67-492e-9104-96c0d4ceaedc">mi</syl>
                                     <neume xml:id="m-862aa811-b024-44ae-ac97-92e0507eb6d7">
-                                        <nc xml:id="m-45abd9e8-a2de-4eba-8956-deff3c455ec7" facs="#m-e18303f2-30f6-4db4-a4b9-af915a713f51" oct="3" pname="c"/>
+                                        <nc xml:id="m-45abd9e8-a2de-4eba-8956-deff3c455ec7" facs="#m-e18303f2-30f6-4db4-a4b9-af915a713f51" oct="3" pname="c" tilt="s"/>
                                         <nc xml:id="m-4ac5b000-2373-4aa4-867b-e86b170dd9f9" facs="#m-23437b44-2c9b-4246-ba13-d00430265e80" oct="3" pname="c"/>
                                         <nc xml:id="m-4a5f02e6-122f-4382-b565-8f14d986c04e" facs="#m-3e29c26c-125d-4eab-9802-b6bbdcb3a7c3" oct="3" pname="c"/>
                                     </neume>
@@ -1493,7 +1508,7 @@
                                 </syllable>
                                 <syllable xml:id="m-37958e62-b315-4258-a8b1-d7eb2859c02b">
                                     <neume xml:id="m-b3a9118d-9e53-491c-bfaa-19a5b16e38d8">
-                                        <nc xml:id="m-6b207887-51b5-4bae-af0d-592b24fa35a6" facs="#m-287da0a4-6dea-42e3-8aa1-e522608952b3" oct="3" pname="e"/>
+                                        <nc xml:id="m-6b207887-51b5-4bae-af0d-592b24fa35a6" facs="#m-287da0a4-6dea-42e3-8aa1-e522608952b3" oct="3" pname="e" tilt="s"/>
                                     </neume>
                                     <syl xml:id="m-3b4babf0-827a-4143-9923-4219785678c3" facs="#m-f17e49ca-0041-4f84-861a-76b17aeb2990">o</syl>
                                 </syllable>
@@ -1506,7 +1521,7 @@
                                 <syllable xml:id="syllable-0000000001438581">
                                     <syl xml:id="m-1f60dc66-59bc-4ad9-a9a9-604602ae3c58" facs="#m-5586c2b9-152b-4c09-9755-7ec49d4fb337">no</syl>
                                     <neume xml:id="neume-0000001723916540">
-                                        <nc xml:id="m-d7ad0f31-51a4-4ea3-987a-75e95ce7db28" facs="#m-e93b506d-5ee8-441c-b5ac-e55bee4516c6" oct="3" pname="c"/>
+                                        <nc xml:id="m-d7ad0f31-51a4-4ea3-987a-75e95ce7db28" facs="#m-e93b506d-5ee8-441c-b5ac-e55bee4516c6" oct="3" pname="c" tilt="s"/>
                                         <nc xml:id="nc-0000000724586807" facs="#zone-0000001460424134" oct="2" pname="b" tilt="se"/>
                                         <nc xml:id="m-a71790b6-c52d-4f94-befd-970c8b83b094" facs="#m-90de32d9-b479-4f4f-8221-8e789297dce4" oct="2" pname="a" tilt="se"/>
                                     </neume>
@@ -1531,6 +1546,7 @@
                                         <nc xml:id="m-8c50064e-73ea-4446-860c-226fa61cd6a9" facs="#m-767c86c6-c1ce-4bf6-adf1-93f5c3431ac2" oct="2" pname="a"/>
                                     </neume>
                                 </syllable>
+                                <accid xml:id="accid-0000001182757268" facs="#zone-0000000501617928" accid="f"/>
                                 <syllable xml:id="syllable-0000000666038436">
                                     <syl xml:id="syl-0000000004885758" facs="#zone-0000001438690274">ra</syl>
                                     <neume xml:id="neume-0000001555830972">
@@ -1547,7 +1563,7 @@
                                 <syllable xml:id="m-70e0e1bf-3c8c-4047-8810-b5eaa9647c1a">
                                     <syl xml:id="m-f9b1e3fd-0d57-4368-a95c-8999226b5414" facs="#m-ebb6c88a-407b-47f1-ae29-c0ddfd422877">am</syl>
                                     <neume xml:id="m-ebafe8d9-f2e8-477d-9256-11ffcf3f6477">
-                                        <nc xml:id="m-ee180c1f-3eb2-4681-999b-14cef1351833" facs="#m-33e4744b-4c64-4b56-adeb-51bf7ec1c6a7" oct="2" pname="f"/>
+                                        <nc xml:id="m-ee180c1f-3eb2-4681-999b-14cef1351833" facs="#m-33e4744b-4c64-4b56-adeb-51bf7ec1c6a7" oct="2" pname="f" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <custos facs="#m-33eea803-f198-4dfe-9780-62796b671dea" oct="2" pname="g" xml:id="m-fbd50255-4b5e-434a-8987-2c4d470a9a69"/>
@@ -1623,7 +1639,7 @@
                                 <syllable xml:id="m-a8ebbb7e-0770-48a8-8a37-8021c3d87c96">
                                     <neume xml:id="m-8273ead8-2577-47a1-b774-deccad4e602f">
                                         <nc xml:id="m-f45b10d9-993c-4d8d-90f1-9e68887a0a07" facs="#m-7b26604a-8f71-465b-a6ab-289d2a49e77e" oct="2" pname="f"/>
-                                        <nc xml:id="m-87d1abb4-4de2-4302-bcf2-c5771ce545bf" facs="#m-e72e6661-d2e8-46bd-893a-df0130ae170a" oct="2" pname="g"/>
+                                        <nc xml:id="m-87d1abb4-4de2-4302-bcf2-c5771ce545bf" facs="#m-e72e6661-d2e8-46bd-893a-df0130ae170a" oct="2" pname="g" tilt="s"/>
                                     </neume>
                                     <syl xml:id="m-78fd9eb7-9887-419b-8172-06d559c17e3d" facs="#m-c510bc60-e800-4b37-b9ae-8187cd66be4c">ti</syl>
                                 </syllable>
@@ -1662,7 +1678,7 @@
                                 </syllable>
                                 <syllable xml:id="m-34bf6788-9309-42fb-be27-3f9ea4e4a7cb">
                                     <neume xml:id="m-6c3290c0-70b5-4353-a7c6-507a17a41d92">
-                                        <nc xml:id="m-fa940844-375a-4833-8601-f7015db69315" facs="#m-510d55cc-830c-4402-9ddc-2f755d6bc00f" oct="3" pname="c"/>
+                                        <nc xml:id="m-fa940844-375a-4833-8601-f7015db69315" facs="#m-510d55cc-830c-4402-9ddc-2f755d6bc00f" oct="3" pname="c" tilt="s"/>
                                     </neume>
                                     <syl xml:id="m-fb038363-6f88-4989-b467-92b20ac43d3f" facs="#m-ea2d4f47-0907-4952-9773-5bf129d68f35">ri</syl>
                                 </syllable>
@@ -1674,21 +1690,21 @@
                                     <syl xml:id="m-c1c462ac-13fb-427c-a84c-e8953853f75e" facs="#m-558089fc-8d7e-4048-8add-bb22610f948f">ta</syl>
                                 </syllable>
                                 <syllable xml:id="m-313d4c5e-6de7-43d4-a8af-8e25fe33cbd2">
-                                    <syl xml:id="m-0bafbf07-7700-4d83-8bf7-33a1acf4523a" facs="#m-d70ada16-a51d-44c5-9eda-0e9037bcd698">te</syl>
                                     <neume xml:id="neume-0000001495372684">
                                         <nc xml:id="m-fb60d11b-b30b-43b7-999f-7521d9212c2c" facs="#m-8f99ddd2-dca4-4685-8e0f-8e4c3884cb87" oct="3" pname="c"/>
                                         <nc xml:id="m-b546b6c9-b066-4221-944e-19c740efb1be" facs="#m-68e5f347-c34b-49a0-a0cf-72419944a877" oct="3" pname="d"/>
                                         <nc xml:id="m-c48c67fe-b710-4eda-99a3-7ba36fbeea33" facs="#m-46d5dbfc-e287-41e9-9748-fd0e4d0f8fc2" oct="3" pname="c" tilt="se"/>
                                         <nc xml:id="m-35f2f231-2ff5-4df8-bac3-c5b7e4568b24" facs="#m-6f9a7ce6-4566-47a8-a872-1d15b7f7bfbf" oct="2" pname="b" tilt="se"/>
                                     </neume>
+                                    <syl xml:id="m-0bafbf07-7700-4d83-8bf7-33a1acf4523a" facs="#m-d70ada16-a51d-44c5-9eda-0e9037bcd698">te</syl>
                                     <neume xml:id="neume-0000000022907422">
-                                        <nc xml:id="m-d6e02cfc-8960-4c85-a549-39eb5581ef15" facs="#m-d8879499-d01d-4083-8885-165bf6a2da20" oct="3" pname="c"/>
+                                        <nc xml:id="m-d6e02cfc-8960-4c85-a549-39eb5581ef15" facs="#m-d8879499-d01d-4083-8885-165bf6a2da20" oct="3" pname="c" tilt="s"/>
                                         <nc xml:id="m-699ae9f9-e27a-4454-8926-45972f89d536" facs="#m-5e2de5b1-98b4-457d-8e32-a88752afcc1b" oct="2" pname="b" tilt="se"/>
                                         <nc xml:id="m-e0f0e008-6c60-4991-b90f-36a45a0da36e" facs="#m-65426cb6-87b2-446e-8125-9b546b9b466e" oct="2" pname="a" tilt="se"/>
                                     </neume>
                                     <neume xml:id="neume-0000000171904626">
                                         <nc xml:id="m-7920bf01-5309-4d00-bcc8-13964a79ddc2" facs="#m-b8173177-b51c-4454-8e16-3be161860018" oct="2" pname="a"/>
-                                        <nc xml:id="m-e95cc0a8-c85c-414f-8b2f-f03b76879077" facs="#m-82b211a6-6b2e-46ac-a55d-033ef383b7df" oct="2" pname="g"/>
+                                        <nc xml:id="m-e95cc0a8-c85c-414f-8b2f-f03b76879077" facs="#m-82b211a6-6b2e-46ac-a55d-033ef383b7df" oct="2" pname="g" tilt="s"/>
                                     </neume>
                                 </syllable>
                                 <syllable xml:id="m-42a4c41f-2d44-4e98-890a-666e15a0b445">
@@ -1753,13 +1769,14 @@
                                     </neume>
                                     <syl xml:id="syl-0000002064851173" facs="#zone-0000001216823183">i</syl>
                                 </syllable>
-                                <syllable xml:id="m-68baa25b-4f89-474f-9c5c-471aa8e5cb66">
-                                    <syl xml:id="m-577fdf28-7b20-4851-b249-48d4a9d537dc" facs="#m-a7b86298-1c07-4785-a487-e4def8a25cb1">de</syl>
-                                    <neume xml:id="m-98200689-3a3a-46c2-b4b0-1b306b398061">
-                                        <nc xml:id="m-428a01ef-7029-44ac-8802-88b888db708e" facs="#m-360b33e1-5def-48d8-af61-22967ec91f04" oct="2" pname="f"/>
-                                        <nc xml:id="m-fa32c90e-58a6-4d7e-ac40-031947e42503" facs="#m-8b600e37-d638-4415-a971-18d185c7a67c" oct="2" pname="g"/>
+                                <syllable xml:id="syllable-0000002094868308">
+                                    <neume xml:id="neume-0000001447824676">
+                                        <nc xml:id="nc-0000000126819068" facs="#zone-0000002012877749" oct="2" pname="f"/>
+                                        <nc xml:id="nc-0000002089620260" facs="#zone-0000000324901927" oct="2" pname="g" tilt="s"/>
                                     </neume>
+                                    <syl xml:id="syl-0000001374531626" facs="#zone-0000000527007597"/>
                                 </syllable>
+                                <custos facs="#zone-0000001614043303" oct="2" pname="g" xml:id="custos-0000001959684317"/>
                             </layer>
                         </staff>
                     </section>
