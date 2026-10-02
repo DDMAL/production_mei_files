@@ -10,5 +10,12 @@ For example, for the folio `001r` in the `cdn-hsmu-m2149l4` ([Salzinnes Antiphon
 
 ## Validation of the [MEI](https://music-encoding.org/) files
 
-In addition to the files, this repository is configured to run some basic sanity checks on the MEI files. Currently, the implemented checks will:
-- Verify that the files do not have any declared but unreferenced `<zone>` elements.
+In addition to the files, this repository is configured to run some basic sanity checks on the MEI files (`test_mei.py`). The checks fail if:
+- a `@facs` points to no `<zone>` or `<surface>` in the file;
+- an `xml:id` is used more than once;
+- a `<zone>` has negative or all-zero coordinates (these make files invalid or uneditable in Neon, see DDMAL/MEI_encoding#26 and DDMAL/Neon#1147);
+- an unreferenced `<zone>` lies outside its page.
+
+Other unreferenced zones, and referenced zones that extend past the edge of the page, are reported as warnings.
+
+`utilities/fix_zones.py` repairs the failures above by deleting only what carries no usable information. Run it without `--write` first to see what it would change.
