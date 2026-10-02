@@ -13,9 +13,8 @@ For example, for the folio `001r` in the `cdn-hsmu-m2149l4` ([Salzinnes Antiphon
 In addition to the files, this repository is configured to run some basic sanity checks on the MEI files (`test_mei.py`). The checks fail if:
 - a `@facs` points to no `<zone>` or `<surface>` in the file;
 - an `xml:id` is used more than once;
-- a `<zone>` has negative or all-zero coordinates (these make files invalid or uneditable in Neon, see DDMAL/MEI_encoding#26 and DDMAL/Neon#1147);
-- an unreferenced `<zone>` lies outside its page.
+- a `<zone>` has negative coordinates (invalid MEI; Neon deletes the element referencing such a zone, see DDMAL/MEI_encoding#26).
 
-Other unreferenced zones, and referenced zones that extend past the edge of the page, are reported as warnings.
+Unreferenced zones, all-zero zones and zones outside the page are reported as warnings. Neon removes unreferenced and all-zero zones itself when it opens a file (DDMAL/Neon#1147), but they often point to lost content or OMR noise.
 
-`utilities/fix_zones.py` repairs the failures above by deleting only what carries no usable information. Run it without `--write` first to see what it would change.
+`utilities/fix_zones.py` repairs the failures above, as well as unreferenced zones that are all-zero or outside the page, by deleting only what carries no usable information. Run it without `--write` first to see what it would change.

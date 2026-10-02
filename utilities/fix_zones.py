@@ -1,4 +1,4 @@
-"""Repair the zone problems that test_mei.py treats as failures.
+"""Repair the zone problems that test_mei.py reports, where that is lossless.
 
 Every repair removes something that carries no usable information:
 

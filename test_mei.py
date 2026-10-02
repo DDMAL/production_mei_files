@@ -4,15 +4,18 @@ The checks that fail are problems that break the tools reading these files:
 
 - every @facs must point to a zone or surface in the same file (Cantus
   Ultimus looks bounding boxes up by @facs when indexing);
-- xml:ids must be unique;
-- zones must not have negative or all-zero coordinates; these make a file
-  invalid or uneditable in Neon (DDMAL/MEI_encoding#26, DDMAL/Neon#1147);
-- unreferenced zones must not lie outside their page: Neon reports them as
-  out-of-bounds content that it cannot remove (DDMAL/Neon#1147).
+- xml:ids must be unique (libxml2, which Neon validates with, rejects
+  duplicates);
+- zones must not have negative coordinates: the MEI schema forbids them, and
+  when such a zone is referenced, Neon deletes the referencing element on
+  load (DDMAL/MEI_encoding#26).
 
-Other unreferenced zones, and referenced zones that extend past the edge of
-the page, are reported as warnings. They often point to lost content or OMR
-noise worth reviewing, but they don't break anything on their own.
+These are reported as warnings:
+
+- unreferenced zones, all-zero zones and zones outside the page. Neon
+  removes unreferenced and all-zero zones itself when it opens a file
+  (DDMAL/Neon#1147) and warns about content outside the page, so they don't
+  break anything, but they often point to lost content or OMR noise.
 
 Missing zone coordinates count as 0, as in Cantus Ultimus.
 """
@@ -102,10 +105,14 @@ class TestMEIFiles(unittest.TestCase):
             if unref:
                 warnings[folder]["files with unreferenced zones"] += 1
                 warnings[folder]["unreferenced zones"] += len(unref)
-            past_edge = [z for z in mei.referenced if z in mei.zones and mei.outside_page(z)]
-            if past_edge:
-                warnings[folder]["files with referenced zones past the page edge"] += 1
-                warnings[folder]["referenced zones past the page edge"] += len(past_edge)
+            all_zero = [z for z, box in mei.zones.items() if not any(box[:4])]
+            if all_zero:
+                warnings[folder]["files with all-zero zones"] += 1
+                warnings[folder]["all-zero zones"] += len(all_zero)
+            outside = [z for z in mei.zones if mei.outside_page(z)]
+            if outside:
+                warnings[folder]["files with zones outside the page"] += 1
+                warnings[folder]["zones outside the page"] += len(outside)
 
         in_ci = os.environ.get("GITHUB_ACTIONS") == "true"
         for folder, counts in sorted(warnings.items()):
@@ -141,25 +148,13 @@ class TestMEIFiles(unittest.TestCase):
                     f"Duplicate xml:ids: {listed(mei.duplicate_ids)}",
                 )
 
-    def test_zone_coordinates(self):
+    def test_no_negative_coordinates(self):
         for path, mei in self.files.items():
-            invalid = [
-                z for z, box in mei.zones.items()
-                if min(box[:4]) < 0 or not any(box[:4])
-            ]
+            negative = [z for z, box in mei.zones.items() if min(box[:4]) < 0]
             with self.subTest(filepath=path):
                 self.assertFalse(
-                    invalid,
-                    f"{len(invalid)} zones with negative or all-zero coordinates: {listed(invalid)}",
-                )
-
-    def test_no_unreferenced_zones_outside_page(self):
-        for path, mei in self.files.items():
-            outside = [z for z in mei.unreferenced_zones if mei.outside_page(z)]
-            with self.subTest(filepath=path):
-                self.assertFalse(
-                    outside,
-                    f"{len(outside)} unreferenced zones outside the page: {listed(outside)}",
+                    negative,
+                    f"{len(negative)} zones with negative coordinates: {listed(negative)}",
                 )
 
 
