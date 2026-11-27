@@ -5,14 +5,21 @@ Every repair removes something that carries no usable information:
 - unreferenced zones with negative or all-zero coordinates, or lying outside
   their page, are deleted;
 - referenced zones with negative or all-zero coordinates are deleted, and the
-  @facs pointing to them is removed (the element keeps its content, it just no
-  longer claims a meaningless position);
-- @facs that point to no zone or surface are removed;
+  reference to them is removed from @facs (the element keeps its content, it
+  just no longer claims a meaningless position);
+- @facs references that point to no zone or surface are removed;
 - exact copies of an element that repeat its xml:id are deleted.
 
+Only the bad references are removed from a @facs: "#good #missing" becomes
+"#good", and the attribute goes only when no reference is left. References are
+looked for in the whole file, not only in <body>, so a zone that a header
+element points to is never treated as unused.
+
 Files are edited as text, so everything else (formatting, line endings, XML
-declarations) is left byte-for-byte as it was. Each edited file is re-parsed
-and compared against the original to confirm nothing else changed.
+declarations) is left byte-for-byte as it was. Matches inside comments, CDATA
+sections and processing instructions are never edited. Each edited file is
+re-parsed and compared against the original, including its comments and text,
+to confirm nothing else changed.
 
 Without --write, nothing is modified and the changes are only reported.
 
@@ -32,9 +39,18 @@ MEI = "{http://www.music-encoding.org/ns/mei}"
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 COORDS = ("ulx", "uly", "lrx", "lry")
 
+# Markup whose content is not elements, so it must never be edited
+PROTECTED = re.compile(r"<!--.*?-->|<!\[CDATA\[.*?\]\]>|<\?.*?\?>", re.S)
+
 
 class FixError(Exception):
     pass
+
+
+def parse(text):
+    """Parse keeping comments and processing instructions, so they are compared too."""
+    builder = ET.TreeBuilder(insert_comments=True, insert_pis=True)
+    return ET.fromstring(text.encode("utf-8"), parser=ET.XMLParser(target=builder))
 
 
 def tag_name(element):
@@ -50,15 +66,19 @@ def invalid_box(box):
     return min(box) < 0 or not any(box)
 
 
+def remaining_facs(value, targets):
+    """@facs with the given targets (ids without '#') removed."""
+    return " ".join(t for t in value.split() if t.lstrip("#") not in targets)
+
+
 def plan_changes(root, all_unreferenced=False):
     """Decide what to change. Returns (zones, facs, duplicates, changes).
 
     zones: zone ids to delete
-    facs: ids of elements whose @facs is removed
+    facs: element id -> the @facs targets to remove from it
     duplicates: ids of elements whose later identical copies are deleted
     changes: rows for the report
     """
-    body = root.find(f".//{MEI}body")
     surfaces = {s.get(XML_ID) for s in root.iter(f"{MEI}surface")}
     zones = {}
     for surface in root.iter(f"{MEI}surface"):
@@ -66,9 +86,11 @@ def plan_changes(root, all_unreferenced=False):
         for zone in surface.iter(f"{MEI}zone"):
             zones[zone.get(XML_ID)] = (zone_box(zone), width, height)
 
+    # The whole document, not only <body>: a header element such as a title
+    # can point to a zone too.
     referrers = {}  # zone id -> [elements]
     dangling = []
-    for element in body.iter():
+    for element in root.iter():
         for target in element.get("facs", "").split():
             target = target.lstrip("#")
             if target in zones:
@@ -76,7 +98,8 @@ def plan_changes(root, all_unreferenced=False):
             elif target not in surfaces:
                 dangling.append((element, target))
 
-    remove_zones, remove_facs, changes = set(), set(), []
+    remove_zones, changes = set(), []
+    removals = []  # (element, target, reason, coordinates)
 
     for zone_id, (box, width, height) in zones.items():
         coords = " ".join(map(str, box))
@@ -86,9 +109,7 @@ def plan_changes(root, all_unreferenced=False):
                 changes.append(("delete referenced zone", zone_id, "zone",
                                 "negative or all-zero coordinates", coords))
                 for element in referrers[zone_id]:
-                    remove_facs.add(element.get(XML_ID))
-                    changes.append(("remove @facs", element.get(XML_ID), tag_name(element),
-                                    f"pointed to deleted zone {zone_id}", coords))
+                    removals.append((element, zone_id, f"pointed to deleted zone {zone_id}", coords))
             continue
         if invalid_box(box):
             reason = "unreferenced, negative or all-zero coordinates"
@@ -102,18 +123,32 @@ def plan_changes(root, all_unreferenced=False):
         changes.append(("delete unreferenced zone", zone_id, "zone", reason, coords))
 
     for element, target in dangling:
-        remove_facs.add(element.get(XML_ID))
-        changes.append(("remove @facs", element.get(XML_ID), tag_name(element),
-                        f"pointed to missing zone {target}", ""))
+        removals.append((element, target, f"pointed to missing zone {target}", ""))
+
+    remove_facs = {}
+    for element, target, _, _ in removals:
+        if element.get(XML_ID) is None:
+            raise FixError(f"a {tag_name(element)} with a @facs to change has no xml:id")
+        remove_facs.setdefault(element.get(XML_ID), set()).add(target)
+    for element, target, reason, coords in removals:
+        left = remaining_facs(element.get("facs"), remove_facs[element.get(XML_ID)])
+        action = "remove from @facs" if left else "remove @facs"
+        changes.append((action, element.get(XML_ID), tag_name(element), reason, coords))
 
     ids = Counter(e.get(XML_ID) for e in root.iter() if e.get(XML_ID))
     duplicates = {i for i, n in ids.items() if n > 1}
     for dup in sorted(duplicates):
         changes.append(("delete duplicate element", dup, "", f"{ids[dup] - 1} identical copies", ""))
 
-    if None in remove_facs:
-        raise FixError("an element with a @facs to remove has no xml:id")
     return remove_zones, remove_facs, duplicates, changes
+
+
+def unprotected_matches(pattern, text):
+    """Matches of pattern that don't start inside a comment, CDATA section or
+    processing instruction."""
+    spans = [m.span() for m in PROTECTED.finditer(text)]
+    return [m for m in pattern.finditer(text)
+            if not any(start <= m.start() < end for start, end in spans)]
 
 
 def start_tag_pattern(element_id):
@@ -124,7 +159,7 @@ def delete_element(text, element_id, keep_first):
     """Delete a self-closing element by id, with its line if it has one to itself."""
     pattern = re.compile(r'(\r?\n[ \t]*)?<[A-Za-z]+\b[^<>]*\sxml:id="'
                          + re.escape(element_id) + r'"[^<>]*/>')
-    matches = list(pattern.finditer(text))
+    matches = unprotected_matches(pattern, text)
     if not matches:
         raise FixError(f"self-closing element {element_id} not found")
     if keep_first:
@@ -139,40 +174,81 @@ def delete_element(text, element_id, keep_first):
     return text
 
 
-def remove_facs_attribute(text, element_id):
-    matches = list(start_tag_pattern(element_id).finditer(text))
+def remove_facs_targets(text, element_id, targets):
+    """Remove targets from the element's @facs, and the attribute if none are left."""
+    matches = unprotected_matches(start_tag_pattern(element_id), text)
     if len(matches) != 1:
         raise FixError(f"start tag of {element_id} found {len(matches)} times")
     m = matches[0]
-    new_tag, n = re.subn(r'\s+facs="[^"]*"', "", m.group(0))
-    if n != 1:
-        raise FixError(f"{element_id} has {n} @facs")
+    tag = m.group(0)
+    attrs = list(re.finditer(r'(\s+)facs="([^"]*)"', tag))
+    if len(attrs) != 1:
+        raise FixError(f"{element_id} has {len(attrs)} @facs")
+    a = attrs[0]
+    left = remaining_facs(a.group(2), targets)
+    replacement = f'{a.group(1)}facs="{left}"' if left else ""
+    new_tag = tag[:a.start()] + replacement + tag[a.end():]
     return text[:m.start()] + new_tag + text[m.end():]
 
 
-def snapshot(root, drop_zones=(), drop_facs=(), dedupe=()):
-    """Every element as (tag, attributes, text), after the intended changes."""
+def snapshot(root, drop_zones=(), facs=None, dedupe=()):
+    """The document as a flat list of tags with their attributes, comments,
+    processing instructions and text, after the intended changes.
+
+    Text is compared with whitespace collapsed, because deleting an element's
+    line changes only whitespace; text that is joined or changed in any other
+    way still shows up as a difference.
+    """
+    facs = facs or {}
     seen = set()
-    elements = []
-    for e in root.iter():
+    items = []
+
+    def add_text(s):
+        if s:
+            items.append(("text", s))
+
+    def walk(e):
         element_id = e.get(XML_ID)
-        if element_id in drop_zones:
-            continue
+        skip = element_id in drop_zones or (element_id in dedupe and element_id in seen)
         if element_id in dedupe:
-            if element_id in seen:
-                continue
             seen.add(element_id)
-        attrib = dict(e.attrib)
-        if element_id in drop_facs:
-            attrib.pop("facs", None)
-        elements.append((e.tag, sorted(attrib.items()), (e.text or "").strip()))
-    return elements
+        if not skip:
+            if e.tag is ET.Comment:
+                items.append(("comment", e.text))
+            elif e.tag is ET.ProcessingInstruction:
+                items.append(("pi", e.text))
+            else:
+                attrib = dict(e.attrib)
+                if element_id in facs:
+                    left = remaining_facs(attrib.get("facs", ""), facs[element_id])
+                    if left:
+                        attrib["facs"] = left
+                    else:
+                        attrib.pop("facs", None)
+                items.append(("start", e.tag, sorted(attrib.items())))
+                add_text(e.text)
+                for child in e:
+                    walk(child)
+                items.append(("end", e.tag))
+        # A deleted element's tail stays in the document
+        add_text(e.tail)
+
+    walk(root)
+
+    merged = []
+    for item in items:
+        if item[0] == "text" and merged and merged[-1][0] == "text":
+            merged[-1] = ("text", merged[-1][1] + item[1])
+        else:
+            merged.append(item)
+    return [("text", " ".join(i[1].split())) if i[0] == "text" else i
+            for i in merged if i[0] != "text" or i[1].strip()]
 
 
 def fix_file(path, all_unreferenced=False, write=False):
     with open(path, encoding="utf-8", newline="") as f:
         text = f.read()
-    root = ET.fromstring(text.encode("utf-8"))
+    root = parse(text)
     zones, facs, duplicates, changes = plan_changes(root, all_unreferenced)
     if not changes:
         return []
@@ -180,13 +256,13 @@ def fix_file(path, all_unreferenced=False, write=False):
     new = text
     for element_id in duplicates:
         new = delete_element(new, element_id, keep_first=True)
-    for element_id in facs:
-        new = remove_facs_attribute(new, element_id)
+    for element_id, targets in facs.items():
+        new = remove_facs_targets(new, element_id, targets)
     for zone_id in zones:
         new = delete_element(new, zone_id, keep_first=False)
 
     expected = snapshot(root, zones, facs, duplicates)
-    if snapshot(ET.fromstring(new.encode("utf-8"))) != expected:
+    if snapshot(parse(new)) != expected:
         raise FixError("edited file differs from the original in unexpected ways")
 
     if write:

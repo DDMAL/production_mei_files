@@ -65,11 +65,12 @@ class MEIFile:
                 box = tuple(int(zone.get(c, 0)) for c in COORDS)
                 self.zones[zone.get(XML_ID)] = box + (width, height)
 
-        self.facs = []  # ids referenced by @facs inside <body>
-        if self.body is not None:
-            for element in self.body.iter():
-                for target in element.get("facs", "").split():
-                    self.facs.append(target.lstrip("#"))
+        # ids referenced by @facs anywhere in the file: a header element such
+        # as a title can point to a zone too
+        self.facs = []
+        for element in root.iter():
+            for target in element.get("facs", "").split():
+                self.facs.append(target.lstrip("#"))
 
     @property
     def referenced(self):
